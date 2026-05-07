@@ -33,7 +33,7 @@ export const Navbar = () => {
         >
           <a href="#top" className="group font-display text-sm tracking-normal">
             <span className="text-foreground transition-colors group-hover:text-accent-soft">Brenda Vega</span>
-            <span className="text-muted-foreground">  ¬∑  Visual Designer</span>
+            <span className="text-muted-foreground"> ¬∑ Visual Designer</span>
           </a>
           <nav className="hidden md:flex items-center gap-7 text-[13px] text-muted-foreground">
             {links.map((l) => (

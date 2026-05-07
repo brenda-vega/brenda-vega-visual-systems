@@ -1,36 +1,39 @@
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 
 const services = [
-  "Diseño visual digital",
   "Branding",
+  "Editorial",
+  "Social Media",
+  "Digital Design",
   "UI Visual",
-  "Comunicación digital",
-  "Sistemas de contenido",
-  "Freelance & colaboración remota",
+  "Remote Collaboration",
 ];
 
 export const Contact = () => {
   return (
-    <section id="contact" className="relative py-32 lg:py-44 border-t border-hairline">
+    <section id="contact" className="scroll-reveal relative py-32 lg:py-44 border-t border-hairline">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-7 space-y-10">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">07 · Contact</span>
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-balance">
-              Construyamos algo <span className="italic text-accent">claro</span>, funcional y visualmente consistente.
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">07 ¬∑ Contact</span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.04] tracking-tight text-balance">
+              Disponible para colaborar con agencias creativas, equipos de marketing y proyectos digitales.
             </h2>
+            <p className="max-w-2xl text-base lg:text-lg leading-relaxed text-muted-foreground text-pretty">
+              Dise√±o visual consistente, adaptable y orientado a comunicaci√≥n de marca.
+            </p>
 
             <a
               href="mailto:brendavegavqz@gmail.com"
               className="group inline-flex items-center gap-3 text-2xl sm:text-3xl font-display text-foreground"
             >
               <span className="link-underline">brendavegavqz@gmail.com</span>
-              <ArrowUpRight className="h-6 w-6 text-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <ArrowUpRight className="h-6 w-6 text-accent transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
 
             <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-accent" /> brendavegavqz@gmail.com</span>
-              <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-accent" /> San Luis Potosí, México</span>
+              <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-accent" /> San Luis Potos√≠, M√©xico - Disponible para Remoto</span>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-4">
@@ -38,9 +41,9 @@ export const Contact = () => {
                 <a
                   key={s}
                   href="#"
-                  className="rounded-full border border-hairline bg-surface/40 px-4 py-2 text-sm text-foreground/85 hover:border-accent/40 hover:text-foreground hover:bg-surface-elevated transition-colors"
+                  className="soft-button rounded-full border border-hairline bg-surface/40 px-4 py-2 text-sm text-foreground/85 hover:border-accent/30 hover:text-foreground hover:bg-surface-elevated"
                 >
-                  {s} ↗
+                  {s} ‚Üó
                 </a>
               ))}
             </div>
@@ -52,7 +55,7 @@ export const Contact = () => {
                 <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
-              <span className="text-xs uppercase tracking-[0.18em] text-foreground">Disponible para</span>
+              <span className="text-xs uppercase tracking-[0.18em] text-foreground">Visual Designer</span>
             </div>
             <ul className="space-y-3">
               {services.map((s) => (
@@ -66,8 +69,8 @@ export const Contact = () => {
         </div>
 
         <footer className="mt-32 pt-10 border-t border-hairline flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© 2026 Brenda Vega · Visual Designer</p>
-          <p>Diseñado y desarrollado con cuidado editorial.</p>
+          <p>¬© 2026 Brenda Vega ¬∑ Visual Designer</p>
+          <p>Visual Designer ¬∑ Branding ¬∑ Editorial ¬∑ Social Media ¬∑ Digital Design</p>
         </footer>
       </div>
     </section>

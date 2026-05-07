@@ -1,9 +1,23 @@
-import { Sparkles, Workflow, LayoutGrid } from "lucide-react";
+import { LayoutGrid, Layers3, PenTool } from "lucide-react";
 
 const blocks = [
-  { icon: Sparkles, label: "AI aplicada", desc: "Integración de modelos generativos en workflows visuales y de contenido." },
-  { icon: Workflow, label: "Automatización", desc: "Procesos creativos optimizados para escalar comunicación digital." },
-  { icon: LayoutGrid, label: "Sistemas digitales", desc: "Estructuras visuales para organizar información compleja." },
+  { icon: Layers3, label: "Branding visual", desc: "Direcci√≥n visual, sistemas de marca y consistencia entre aplicaciones digitales." },
+  { icon: PenTool, label: "Dise√±o editorial", desc: "Organizaci√≥n de contenido, jerarqu√≠a visual y comunicaci√≥n clara de informaci√≥n compleja." },
+  { icon: LayoutGrid, label: "UI visual", desc: "Layouts web, arquitectura visual y adaptaci√≥n multiformato para productos digitales." },
+];
+
+const principles = ["consistencia", "claridad", "velocidad de producci√≥n", "percepci√≥n de calidad"];
+
+const focus = [
+  "Branding visual",
+  "Social media systems",
+  "Dise√±o editorial",
+  "Campa√±as digitales",
+  "Layouts web",
+  "UI visual",
+  "Direcci√≥n visual",
+  "Organizaci√≥n de contenido",
+  "Exploraci√≥n creativa con IA",
 ];
 
 export const Systems = () => {
@@ -13,15 +27,37 @@ export const Systems = () => {
       <div className="container">
         <div className="rounded-3xl border border-hairline bg-surface/40 p-10 lg:p-16 backdrop-blur-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">06 · Systems & Automation</span>
+            <div className="lg:col-span-7 space-y-8">
+              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">06 ¬∑ What I bring to creative teams</span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-balance">
-                Exploración continua de <span className="italic text-accent">IA, automatización</span> y sistemas digitales aplicados al diseño.
+                M√°s que piezas aisladas.
               </h2>
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
-                Enfocada en la optimización de procesos creativos y el desarrollo de sistemas digitales
-                que conectan contenido, comunicación y producto.
+                Me interesa construir sistemas visuales que ayuden a las marcas a mantener consistencia,
+                claridad, velocidad de producci√≥n y percepci√≥n de calidad entre plataformas.
               </p>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {principles.map((item) => (
+                  <div key={item} className="border-t border-hairline pt-4 text-sm text-foreground/80">
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-4 border-t border-hairline pt-8">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Por eso mi trabajo suele enfocarse en</p>
+                <div className="flex flex-wrap gap-2">
+                  {focus.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-hairline bg-background/35 px-3.5 py-1.5 text-sm text-foreground/84 transition-colors hover:border-accent/30 hover:text-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="lg:col-span-5 space-y-3">

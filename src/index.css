@@ -45,6 +45,9 @@
     --gradient-hero: radial-gradient(circle at 16% 10%, hsl(345 38% 75% / 0.18), transparent 30%),
                      radial-gradient(circle at 78% 24%, hsl(348 47% 82% / 0.10), transparent 34%),
                      linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-work: radial-gradient(circle at 86% 8%, hsl(345 38% 75% / 0.12), transparent 30rem),
+                     radial-gradient(circle at 12% 42%, hsl(348 47% 82% / 0.07), transparent 28rem),
+                     linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 6%) 50%, hsl(0 0% 5%) 100%);
     --gradient-text: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(0 0% 76%) 100%);
     --shadow-soft: 0 32px 90px -42px hsl(0 0% 0% / 0.78);
     --shadow-glow: 0 0 70px -24px hsl(345 38% 75% / 0.32);
@@ -109,6 +112,10 @@
     background: var(--gradient-hero);
   }
 
+  .bg-work-radial {
+    background: var(--gradient-work);
+  }
+
   .glass-panel {
     background: linear-gradient(180deg, hsl(var(--surface) / 0.66), hsl(var(--surface) / 0.34));
     border-color: hsl(var(--border) / 0.10);
@@ -135,6 +142,36 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  .scroll-reveal {
+    animation: scroll-fade-up 1ms linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 26%;
+    will-change: opacity, transform;
+  }
+
+  .case-study-stagger {
+    animation-range: entry var(--stagger-entry, 0%) cover var(--stagger-cover, 28%);
+  }
+
+  .motion-card {
+    transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.5s ease, background-color 0.5s ease;
+  }
+
+  .motion-card:hover {
+    transform: translateY(-3px);
+  }
+
+  @keyframes scroll-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .float-slow { animation: float-slow 10s ease-in-out infinite; }
   .float-slower { animation: float-slow 14s ease-in-out infinite; }
 
@@ -151,10 +188,30 @@
   }
 
   .soft-button {
-    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.45s ease, border-color 0.45s ease, color 0.45s ease, box-shadow 0.45s ease;
   }
   .soft-button:hover {
     transform: translateY(-2px);
+  }
+
+  .case-study {
+    box-shadow: inset 0 1px 0 hsl(var(--border) / 0.06), 0 34px 100px -70px hsl(0 0% 0% / 0.9);
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.8s ease, background-color 0.8s ease, box-shadow 0.8s ease;
+  }
+  .case-study:hover {
+    transform: translateY(-5px);
+    border-color: hsl(var(--accent) / 0.20);
+    background-color: hsl(var(--surface) / 0.40);
+    box-shadow: inset 0 1px 0 hsl(var(--border) / 0.08), 0 42px 120px -76px hsl(345 38% 75% / 0.30);
+  }
+
+  .case-study-image {
+    transform: scale(1.001);
+    transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1), filter 1.2s ease;
+  }
+  .case-study:hover .case-study-image {
+    transform: scale(1.026);
+    filter: saturate(1.04) contrast(1.02);
   }
 
   .link-underline {
@@ -179,6 +236,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal,
+    .scroll-reveal,
     .float-slow,
     .float-slower {
       animation: none;
@@ -187,8 +245,17 @@
     }
 
     .hover-lift:hover,
-    .soft-button:hover {
+    .motion-card:hover,
+    .soft-button:hover,
+    .case-study:hover,
+    .case-study:hover .case-study-image {
       transform: none;
+    }
+
+    .case-study,
+    .case-study-image,
+    .motion-card {
+      transition: none;
     }
   }
 }
