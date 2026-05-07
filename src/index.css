@@ -4,46 +4,50 @@
 
 @layer base {
   :root {
-    /* Dark editorial palette — single source of truth */
-    --background: 0 0% 5%;            /* #0D0D0D */
-    --foreground: 0 0% 96%;           /* #F5F5F5 */
+    /* Dark editorial palette - single source of truth */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 97%;
 
-    --surface: 0 0% 9%;               /* #171717 */
-    --surface-elevated: 0 0% 11%;
+    --surface: 0 0% 9%;
+    --surface-elevated: 0 0% 12%;
 
     --card: 0 0% 9%;
-    --card-foreground: 0 0% 96%;
+    --card-foreground: 0 0% 97%;
 
     --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 96%;
+    --popover-foreground: 0 0% 97%;
 
-    --primary: 0 0% 96%;
+    --primary: 0 0% 97%;
     --primary-foreground: 0 0% 5%;
 
     --secondary: 0 0% 11%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary-foreground: 0 0% 97%;
 
     --muted: 0 0% 11%;
-    --muted-foreground: 0 0% 55%;     /* #8B8B8B */
+    --muted-foreground: 0 0% 62%;
 
-    --accent: 345 38% 75%;            /* #D8A7B1 pink */
+    --accent: 345 38% 75%;
     --accent-foreground: 0 0% 5%;
-    --accent-soft: 348 47% 82%;       /* #E6BCC5 */
+    --accent-soft: 348 47% 82%;
 
     --destructive: 0 62% 45%;
-    --destructive-foreground: 0 0% 96%;
+    --destructive-foreground: 0 0% 97%;
 
-    --border: 0 0% 100%;              /* used with /8 opacity */
+    --border: 0 0% 100%;
     --input: 0 0% 100%;
     --ring: 345 38% 75%;
 
     --radius: 1rem;
 
-    --gradient-accent: radial-gradient(circle at 30% 20%, hsl(345 38% 75% / 0.35), transparent 60%),
-                       radial-gradient(circle at 70% 80%, hsl(348 47% 82% / 0.18), transparent 65%);
-    --gradient-text: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 70%) 100%);
-    --shadow-soft: 0 30px 80px -30px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 60px -10px hsl(345 38% 75% / 0.25);
+    --gradient-accent: radial-gradient(circle at 18% 12%, hsl(345 38% 75% / 0.22), transparent 34%),
+                       radial-gradient(circle at 82% 18%, hsl(348 47% 82% / 0.10), transparent 32%),
+                       radial-gradient(circle at 58% 86%, hsl(345 38% 75% / 0.08), transparent 38%);
+    --gradient-hero: radial-gradient(circle at 16% 10%, hsl(345 38% 75% / 0.18), transparent 30%),
+                     radial-gradient(circle at 78% 24%, hsl(348 47% 82% / 0.10), transparent 34%),
+                     linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-text: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(0 0% 76%) 100%);
+    --shadow-soft: 0 32px 90px -42px hsl(0 0% 0% / 0.78);
+    --shadow-glow: 0 0 70px -24px hsl(345 38% 75% / 0.32);
 
     --font-display: 'General Sans', 'Satoshi', 'Inter', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
@@ -61,18 +65,20 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    background:
+      radial-gradient(circle at 50% -20%, hsl(var(--accent) / 0.08), transparent 34rem),
+      hsl(var(--background));
     font-family: var(--font-body);
     font-feature-settings: "ss01", "cv11";
   }
 
   ::selection {
-    background: hsl(var(--accent) / 0.3);
+    background: hsl(var(--accent) / 0.28);
     color: hsl(var(--foreground));
   }
 
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
     font-weight: 500;
   }
 }
@@ -95,8 +101,18 @@
 
   .bg-grain {
     background-image:
-      radial-gradient(hsl(0 0% 100% / 0.015) 1px, transparent 1px);
+      radial-gradient(hsl(0 0% 100% / 0.018) 1px, transparent 1px);
     background-size: 3px 3px;
+  }
+
+  .bg-hero-radial {
+    background: var(--gradient-hero);
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, hsl(var(--surface) / 0.66), hsl(var(--surface) / 0.34));
+    border-color: hsl(var(--border) / 0.10);
+    box-shadow: inset 0 1px 0 hsl(var(--border) / 0.08), var(--shadow-soft);
   }
 
   .glow-accent {
@@ -105,32 +121,40 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    animation: reveal-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    transform: translateY(18px);
+    animation: reveal-up 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    will-change: opacity, transform;
   }
 
-  .reveal-delay-1 { animation-delay: 0.1s; }
-  .reveal-delay-2 { animation-delay: 0.2s; }
-  .reveal-delay-3 { animation-delay: 0.3s; }
-  .reveal-delay-4 { animation-delay: 0.4s; }
+  .reveal-delay-1 { animation-delay: 0.08s; }
+  .reveal-delay-2 { animation-delay: 0.16s; }
+  .reveal-delay-3 { animation-delay: 0.24s; }
+  .reveal-delay-4 { animation-delay: 0.32s; }
 
   @keyframes reveal-up {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .float-slow { animation: float-slow 9s ease-in-out infinite; }
-  .float-slower { animation: float-slow 13s ease-in-out infinite; }
+  .float-slow { animation: float-slow 10s ease-in-out infinite; }
+  .float-slower { animation: float-slow 14s ease-in-out infinite; }
 
   @keyframes float-slow {
     0%, 100% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-12px) translateX(4px); }
+    50% { transform: translateY(-8px) translateX(3px); }
   }
 
   .hover-lift {
-    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.4s ease, background-color 0.4s ease;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.35s ease, background-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
   }
   .hover-lift:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+  }
+
+  .soft-button {
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .soft-button:hover {
+    transform: translateY(-2px);
   }
 
   .link-underline {
@@ -151,5 +175,20 @@
   .link-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .float-slow,
+    .float-slower {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .hover-lift:hover,
+    .soft-button:hover {
+      transform: none;
+    }
   }
 }

@@ -20,27 +20,35 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "backdrop-blur-xl bg-background/70 border-b border-hairline" : "bg-transparent"
+        scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between">
-        <a href="#top" className="font-display text-sm tracking-tight">
-          <span className="text-foreground">Brenda Vega</span>
-          <span className="text-muted-foreground">  ·  Visual Designer</span>
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="link-underline hover:text-foreground transition-colors">
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <a
-          href="#contact"
-          className="hidden md:inline-flex h-9 items-center rounded-full border border-hairline bg-surface/60 px-4 text-xs tracking-wide text-foreground hover:bg-surface-elevated transition-colors"
+      <div className="container">
+        <div
+          className={`flex h-14 items-center justify-between rounded-full px-4 sm:px-5 transition-all duration-500 ${
+            scrolled
+              ? "border border-hairline bg-background/68 shadow-soft backdrop-blur-2xl"
+              : "border border-transparent bg-background/18 backdrop-blur-sm"
+          }`}
         >
-          Disponible · 2026
-        </a>
+          <a href="#top" className="group font-display text-sm tracking-normal">
+            <span className="text-foreground transition-colors group-hover:text-accent-soft">Brenda Vega</span>
+            <span className="text-muted-foreground">  ¬∑  Visual Designer</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-7 text-[13px] text-muted-foreground">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} className="link-underline hover:text-foreground transition-colors duration-300">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <a
+            href="#contact"
+            className="hidden md:inline-flex h-9 items-center rounded-full border border-hairline bg-surface/55 px-4 text-[11px] tracking-[0.16em] text-foreground/90 soft-button hover:border-accent/30 hover:bg-surface-elevated hover:text-foreground"
+          >
+            Disponible ¬∑ 2026
+          </a>
+        </div>
       </div>
     </header>
   );
