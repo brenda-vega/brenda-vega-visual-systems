@@ -10,7 +10,7 @@ type StatConfig = {
 };
 
 const stats: StatConfig[] = [
-  { end: 4, label: "√°reas de dise√±o" },
+  { end: 4, label: "áreas de diseño" },
   { end: 42, label: "semanas editoriales" },
   { end: 30, rangeEnd: 35, suffix: "%", label: "open rate sostenido" },
 ];
@@ -73,11 +73,11 @@ export const Hero = () => {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grain opacity-30" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-background to-transparent" />
 
-      <div className="container grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
-        <div className="lg:col-span-7 space-y-9 lg:space-y-10">
+      <div className="container grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-12">
+        <div className="relative z-10 lg:col-span-6 space-y-9 lg:space-y-10">
           <div className="reveal inline-flex items-center gap-3 rounded-full border border-hairline bg-surface/35 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-md">
             <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_18px_hsl(var(--accent)/0.45)]" />
-            Visual Designer ¬∑ Branding ¬∑ Editorial ¬∑ Digital
+            Visual Designer · Branding · Editorial · Digital
           </div>
 
           <h1 className="reveal reveal-delay-1 max-w-4xl font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.94] tracking-normal text-balance">
@@ -89,13 +89,13 @@ export const Hero = () => {
 
           <div className="reveal reveal-delay-2 max-w-2xl space-y-5 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed text-pretty">
             <p>
-              Dise√±o sistemas visuales, campa√±as y contenido digital para marcas que necesitan
-              mantener coherencia, velocidad y calidad visual en m√∫ltiples canales.
+              Diseño sistemas visuales, campañas y contenido digital para marcas que necesitan
+              mantener coherencia, velocidad y calidad visual en múltiples canales.
             </p>
             <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-foreground/68">
-              Mi perfil combina branding, dise√±o editorial, social media design y dise√±o visual
-              para productos digitales, permiti√©ndome trabajar tanto en campa√±as creativas como
-              en sistemas gr√°ficos estructurados para clientes con necesidades cambiantes.
+              Mi perfil combina branding, diseño editorial, social media design y diseño visual
+              para productos digitales, permitiéndome trabajar tanto en campañas creativas como
+              en sistemas gráficos estructurados para clientes con necesidades cambiantes.
             </p>
           </div>
 
@@ -123,25 +123,26 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-5 reveal reveal-delay-2">
-          <div className="relative mx-auto max-w-[520px] lg:max-w-none">
-            <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-gradient-accent blur-3xl opacity-50" />
-            <div className="absolute -inset-px -z-0 rounded-[1.75rem] bg-gradient-to-br from-white/12 via-white/4 to-accent/10" />
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-hairline bg-surface/35 p-2 shadow-soft backdrop-blur-sm">
-              <img
-                src={heroVisual}
-                alt="Composici√≥n visual de tarjetas UI flotantes con acentos rosados"
-                width={1024}
-                height={1024}
-                className="w-full h-auto rounded-[1.25rem]"
-              />
-            </div>
+        <div className="lg:col-span-6 reveal reveal-delay-2">
+          <div className="relative mx-auto h-[390px] max-w-[380px] sm:h-[500px] sm:max-w-[460px] lg:h-[min(74vh,760px)] lg:max-w-none">
+            <div className="absolute -inset-x-8 bottom-0 top-10 -z-10 rounded-[3rem] bg-gradient-to-tr from-accent/20 via-white/8 to-transparent blur-3xl opacity-70" />
+            <div className="absolute inset-x-6 bottom-0 top-16 -z-10 rounded-[2.5rem] bg-gradient-to-b from-accent/12 via-surface/30 to-background/80" />
+            <img
+              src={heroVisual}
+              alt="Retrato editorial de Brenda Vega"
+              width={1024}
+              height={1280}
+              className="relative z-10 h-full w-full rounded-[2rem] object-cover object-[center_top] shadow-[0_34px_110px_-72px_hsl(345_38%_75%/0.42)]"
+            />
+            <div className="pointer-events-none absolute inset-0 z-20 rounded-[2rem] bg-gradient-to-t from-background/72 via-background/8 to-white/6" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-1/3 rounded-l-[2rem] bg-gradient-to-r from-background/55 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-28 rounded-b-[2rem] bg-gradient-to-t from-background to-transparent" />
 
             {/* Floating UI chips */}
-            <div className="float-slow absolute -left-3 top-10 hidden sm:flex items-center gap-2 rounded-full border border-hairline bg-background/72 backdrop-blur-xl px-3.5 py-2 text-[11px] text-muted-foreground shadow-soft soft-button hover:border-accent/25 hover:text-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Visual system ¬∑ v3
+            <div className="float-slow absolute -left-2 top-12 z-30 hidden sm:flex items-center gap-2 rounded-full border border-hairline bg-background/68 backdrop-blur-xl px-3.5 py-2 text-[11px] text-muted-foreground shadow-soft soft-button hover:border-accent/25 hover:text-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Visual system · v3
             </div>
-            <div className="float-slower absolute -right-3 bottom-10 hidden sm:flex flex-col gap-1 rounded-2xl border border-hairline bg-background/72 backdrop-blur-xl px-4 py-3 text-[11px] shadow-soft soft-button hover:border-accent/25">
+            <div className="float-slower absolute -right-2 bottom-16 z-30 hidden sm:flex flex-col gap-1 rounded-2xl border border-hairline bg-background/68 backdrop-blur-xl px-4 py-3 text-[11px] shadow-soft soft-button hover:border-accent/25">
               <span className="text-muted-foreground">Editorial</span>
               <span className="text-foreground font-display text-sm">12 col grid</span>
             </div>
@@ -155,7 +156,7 @@ export const Hero = () => {
 const Stat = ({ stat, progress }: { stat: StatConfig; progress: number }) => {
   const startValue = Math.round(stat.end * progress);
   const endValue = stat.rangeEnd ? Math.round(stat.rangeEnd * progress) : undefined;
-  const value = endValue !== undefined ? `${startValue}‚Äì${endValue}${stat.suffix ?? ""}` : `${startValue}${stat.suffix ?? ""}`;
+  const value = endValue !== undefined ? `${startValue}–${endValue}${stat.suffix ?? ""}` : `${startValue}${stat.suffix ?? ""}`;
 
   return (
     <div className="pt-5">

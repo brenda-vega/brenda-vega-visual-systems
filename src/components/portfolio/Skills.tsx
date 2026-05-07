@@ -1,15 +1,15 @@
 const groups = [
   {
-    title: "Dise√±o Visual",
-    items: ["Branding", "Direcci√≥n visual", "Dise√±o editorial", "Storytelling visual", "Sistemas visuales", "Social media design"],
+    title: "Diseño Visual",
+    items: ["Branding", "Dirección visual", "Diseño editorial", "Storytelling visual", "Sistemas visuales", "Social media design"],
   },
   {
-    title: "Dise√±o Digital",
-    items: ["UI visual", "Responsive layouts", "Dise√±o para productos digitales", "Arquitectura visual", "Adaptaci√≥n multiformato"],
+    title: "Diseño Digital",
+    items: ["UI visual", "Responsive layouts", "Diseño para productos digitales", "Arquitectura visual", "Adaptación multiformato"],
   },
   {
     title: "Herramientas",
-    items: ["Adobe Creative Suite", "Figma", "Framer", "Canva", "CapCut", "Notion", "IA aplicada a dise√±o"],
+    items: ["Adobe Creative Suite", "Figma", "Framer", "Canva", "CapCut", "Notion", "IA aplicada a diseño"],
   },
 ];
 
@@ -18,7 +18,7 @@ export const Skills = () => {
     <section id="skills" className="scroll-reveal relative py-32 lg:py-40 border-t border-hairline">
       <div className="container">
         <div className="mb-20 max-w-3xl space-y-3">
-          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">05 ¬∑ Capabilities</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">05 · Capabilities</span>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight text-balance">
             Skills
           </h2>

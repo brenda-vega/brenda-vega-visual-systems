@@ -15,12 +15,12 @@ export const Contact = () => {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-7 space-y-10">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">07 ¬∑ Contact</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">07 · Contact</span>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.04] tracking-tight text-balance">
               Disponible para colaborar con agencias creativas, equipos de marketing y proyectos digitales.
             </h2>
             <p className="max-w-2xl text-base lg:text-lg leading-relaxed text-muted-foreground text-pretty">
-              Dise√±o visual consistente, adaptable y orientado a comunicaci√≥n de marca.
+              Diseño visual consistente, adaptable y orientado a comunicación de marca.
             </p>
 
             <a
@@ -33,7 +33,7 @@ export const Contact = () => {
 
             <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-accent" /> brendavegavqz@gmail.com</span>
-              <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-accent" /> San Luis Potos√≠, M√©xico - Disponible para Remoto</span>
+              <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-accent" /> San Luis Potosí, México - Disponible para Remoto</span>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-4">
@@ -43,7 +43,7 @@ export const Contact = () => {
                   href="#"
                   className="soft-button rounded-full border border-hairline bg-surface/40 px-4 py-2 text-sm text-foreground/85 hover:border-accent/30 hover:text-foreground hover:bg-surface-elevated"
                 >
-                  {s} ‚Üó
+                  {s} ↗
                 </a>
               ))}
             </div>
@@ -69,8 +69,8 @@ export const Contact = () => {
         </div>
 
         <footer className="mt-32 pt-10 border-t border-hairline flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>¬© 2026 Brenda Vega ¬∑ Visual Designer</p>
-          <p>Visual Designer ¬∑ Branding ¬∑ Editorial ¬∑ Social Media ¬∑ Digital Design</p>
+          <p>© 2026 Brenda Vega · Visual Designer</p>
+          <p>Visual Designer · Branding · Editorial · Social Media · Digital Design</p>
         </footer>
       </div>
     </section>

@@ -33,7 +33,7 @@ export const Navbar = () => {
         >
           <a href="#top" className="group font-display text-sm tracking-normal">
             <span className="text-foreground transition-colors group-hover:text-accent-soft">Brenda Vega</span>
-            <span className="text-muted-foreground"> ¬∑ Visual Designer</span>
+            <span className="text-muted-foreground"> · Visual Designer</span>
           </a>
           <nav className="hidden md:flex items-center gap-7 text-[13px] text-muted-foreground">
             {links.map((l) => (
@@ -46,7 +46,7 @@ export const Navbar = () => {
             href="#contact"
             className="hidden md:inline-flex h-9 items-center rounded-full border border-hairline bg-surface/55 px-4 text-[11px] tracking-[0.16em] text-foreground/90 soft-button hover:border-accent/30 hover:bg-surface-elevated hover:text-foreground"
           >
-            Disponible ¬∑ 2026
+            Disponible · 2026
           </a>
         </div>
       </div>

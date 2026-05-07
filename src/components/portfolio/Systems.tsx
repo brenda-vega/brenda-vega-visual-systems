@@ -1,23 +1,23 @@
 import { LayoutGrid, Layers3, PenTool } from "lucide-react";
 
 const blocks = [
-  { icon: Layers3, label: "Branding visual", desc: "Direcci√≥n visual, sistemas de marca y consistencia entre aplicaciones digitales." },
-  { icon: PenTool, label: "Dise√±o editorial", desc: "Organizaci√≥n de contenido, jerarqu√≠a visual y comunicaci√≥n clara de informaci√≥n compleja." },
-  { icon: LayoutGrid, label: "UI visual", desc: "Layouts web, arquitectura visual y adaptaci√≥n multiformato para productos digitales." },
+  { icon: Layers3, label: "Branding visual", desc: "Dirección visual, sistemas de marca y consistencia entre aplicaciones digitales." },
+  { icon: PenTool, label: "Diseño editorial", desc: "Organización de contenido, jerarquía visual y comunicación clara de información compleja." },
+  { icon: LayoutGrid, label: "UI visual", desc: "Layouts web, arquitectura visual y adaptación multiformato para productos digitales." },
 ];
 
-const principles = ["consistencia", "claridad", "velocidad de producci√≥n", "percepci√≥n de calidad"];
+const principles = ["consistencia", "claridad", "velocidad de producción", "percepción de calidad"];
 
 const focus = [
   "Branding visual",
   "Social media systems",
-  "Dise√±o editorial",
-  "Campa√±as digitales",
+  "Diseño editorial",
+  "Campañas digitales",
   "Layouts web",
   "UI visual",
-  "Direcci√≥n visual",
-  "Organizaci√≥n de contenido",
-  "Exploraci√≥n creativa con IA",
+  "Dirección visual",
+  "Organización de contenido",
+  "Exploración creativa con IA",
 ];
 
 export const Systems = () => {
@@ -28,13 +28,13 @@ export const Systems = () => {
         <div className="rounded-3xl border border-hairline bg-surface/40 p-10 lg:p-16 backdrop-blur-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-7 space-y-8">
-              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">06 ¬∑ What I bring to creative teams</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">06 · What I bring to creative teams</span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-balance">
-                M√°s que piezas aisladas.
+                Más que piezas aisladas.
               </h2>
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
                 Me interesa construir sistemas visuales que ayuden a las marcas a mantener consistencia,
-                claridad, velocidad de producci√≥n y percepci√≥n de calidad entre plataformas.
+                claridad, velocidad de producción y percepción de calidad entre plataformas.
               </p>
 
               <div className="grid gap-3 sm:grid-cols-2">

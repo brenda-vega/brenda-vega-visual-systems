@@ -22,20 +22,20 @@ const projects: Project[] = [
     index: "01",
     name: "Kairos Research",
     eyebrow: "EDITORIAL SYSTEM",
-    category: "Editorial System ¬∑ Newsletter Design ¬∑ Data Visualization",
+    category: "Editorial System · Newsletter Design · Data Visualization",
     description: [
-      "Dise√±√© el sistema visual y editorial de Lupa Web3, un newsletter especializado en an√°lisis de mercados cripto, desarrollando desde la arquitectura visual del contenido hasta piezas editoriales, infograf√≠as y adaptaci√≥n multicanal.",
+      "Diseñé el sistema visual y editorial de Lupa Web3, un newsletter especializado en análisis de mercados cripto, desarrollando desde la arquitectura visual del contenido hasta piezas editoriales, infografías y adaptación multicanal.",
     ],
     did: [
       "Sistema visual editorial",
-      "Infograf√≠as financieras",
-      "Dise√±o para newsletter",
-      "Adaptaci√≥n multicanal",
-      "Organizaci√≥n visual de informaci√≥n compleja",
-      "Integraci√≥n IA en procesos creativos",
+      "Infografías financieras",
+      "Diseño para newsletter",
+      "Adaptación multicanal",
+      "Organización visual de información compleja",
+      "Integración IA en procesos creativos",
     ],
     result:
-      "El newsletter creci√≥ de 230 a 528 suscriptores manteniendo un open rate sostenido de 30‚Äì35% durante 42 semanas.",
+      "El newsletter creció de 230 a 528 suscriptores manteniendo un open rate sostenido de 30–35% durante 42 semanas.",
     tags: ["Editorial", "Newsletter", "Data Viz", "AI"],
     image: kairos,
     featured: true,
@@ -44,16 +44,16 @@ const projects: Project[] = [
     index: "02",
     name: "Fidex Capital",
     eyebrow: "UI VISUAL DESIGN",
-    category: "UI Visual Design ¬∑ Design System ¬∑ Responsive Layouts",
+    category: "UI Visual Design · Design System · Responsive Layouts",
     description: [
-      "Dise√±√© p√°ginas responsivas, layouts adaptativos y componentes visuales para un producto financiero digital, desarrollando un sistema de dise√±o estructurado en Figma con componentes reutilizables, estados y design tokens.",
+      "Diseñé páginas responsivas, layouts adaptativos y componentes visuales para un producto financiero digital, desarrollando un sistema de diseño estructurado en Figma con componentes reutilizables, estados y design tokens.",
     ],
     did: [
       "Landing pages",
       "Responsive layouts",
       "Design systems",
       "Componentes reutilizables",
-      "Jerarqu√≠a visual",
+      "Jerarquía visual",
       "Design tokens",
     ],
     tags: ["Figma", "Design System", "UI Visual", "Responsive"],
@@ -63,17 +63,17 @@ const projects: Project[] = [
     index: "03",
     name: "Lytryum",
     eyebrow: "CONTENT DESIGN",
-    category: "Content Design ¬∑ Educational Visual Systems",
+    category: "Content Design · Educational Visual Systems",
     description: [
-      "Particip√© en la construcci√≥n visual de un sistema digital de contenido y certificaciones estructurado por categor√≠as y rareza, utilizando IA para optimizar producci√≥n y exploraci√≥n gr√°fica.",
-      "Tambi√©n desarroll√© materiales educativos, contenido para redes sociales y piezas promocionales orientadas a mantener consistencia visual y adaptaci√≥n multiformato.",
+      "Participé en la construcción visual de un sistema digital de contenido y certificaciones estructurado por categorías y rareza, utilizando IA para optimizar producción y exploración gráfica.",
+      "También desarrollé materiales educativos, contenido para redes sociales y piezas promocionales orientadas a mantener consistencia visual y adaptación multiformato.",
     ],
     did: [
       "Sistemas visuales educativos",
-      "Dise√±o para redes sociales",
+      "Diseño para redes sociales",
       "Thumbnails & campaign assets",
-      "Producci√≥n visual asistida por IA",
-      "Adaptaci√≥n multicanal",
+      "Producción visual asistida por IA",
+      "Adaptación multicanal",
     ],
     tags: ["Content", "Education", "Social", "AI"],
     image: lytryum,
@@ -82,16 +82,16 @@ const projects: Project[] = [
     index: "04",
     name: "Exponencial Cripto Club",
     eyebrow: "CAMPAIGN DESIGN",
-    category: "Campaign Design ¬∑ YouTube Assets ¬∑ Event Branding",
+    category: "Campaign Design · YouTube Assets · Event Branding",
     description: [
-      "Dise√±√© contenido visual para campa√±as digitales, YouTube y eventos relacionados con tecnolog√≠a y educaci√≥n Web3, adaptando piezas para m√∫ltiples formatos y plataformas de comunicaci√≥n.",
+      "Diseñé contenido visual para campañas digitales, YouTube y eventos relacionados con tecnología y educación Web3, adaptando piezas para múltiples formatos y plataformas de comunicación.",
     ],
     did: [
-      "Dise√±o promocional",
+      "Diseño promocional",
       "Materiales para streaming y YouTube",
       "Branding para eventos",
-      "Comunicaci√≥n visual multiplataforma",
-      "Assets para campa√±as digitales",
+      "Comunicación visual multiplataforma",
+      "Assets para campañas digitales",
     ],
     tags: ["Campaign", "YouTube", "Event Branding", "Web3"],
     image: exponencial,
@@ -116,7 +116,7 @@ export const Work = () => {
             </h2>
           </div>
           <p className="reveal reveal-delay-2 max-w-md text-sm leading-relaxed text-muted-foreground lg:col-span-3 lg:col-start-10">
-            Sistemas visuales, campa√±as y contenido digital desarrollados para marcas con necesidades de coherencia, velocidad y calidad visual.
+            Sistemas visuales, campañas y contenido digital desarrollados para marcas con necesidades de coherencia, velocidad y calidad visual.
           </p>
         </div>
 
@@ -152,14 +152,14 @@ const ProjectCase = ({
     >
       <div className={`grid grid-cols-1 lg:grid-cols-12 ${compact ? "lg:min-h-[520px]" : "lg:min-h-[640px]"}`}>
         <div className={`relative overflow-hidden ${compact ? "lg:col-span-7" : "lg:col-span-8"} ${reverse ? "lg:order-2" : ""}`}>
-          <div className={`relative h-full ${compact ? "min-h-[360px]" : "min-h-[460px]"}`}>
+          <div className={`relative h-full bg-background/35 ${compact ? "min-h-[360px]" : "min-h-[460px]"}`}>
             <img
               src={project.image}
               alt={`${project.name} / ${project.category}`}
               loading="lazy"
               width={1400}
               height={980}
-              className="case-study-image h-full w-full object-cover"
+              className="case-study-image h-full w-full object-contain p-4 sm:p-6 lg:p-8"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-background/0 to-background/18 opacity-70 transition-opacity duration-700 group-hover:opacity-90" />
             <div className="absolute inset-0 bg-accent/0 mix-blend-soft-light transition-colors duration-700 group-hover:bg-accent/10" />
