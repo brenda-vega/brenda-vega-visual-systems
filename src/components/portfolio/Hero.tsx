@@ -1,4 +1,4 @@
-import heroVisual from "@/assets/hero-visual.jpg";
+import heroVisual from "@/assets/brenda-vega-editorial-portrait.png";
 import { ArrowUpRight, Download } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 

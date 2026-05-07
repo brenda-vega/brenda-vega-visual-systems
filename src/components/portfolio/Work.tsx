@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
-import kairos from "@/assets/project-kairos.jpg";
-import lytryum from "@/assets/project-lytryum.jpg";
-import exponencial from "@/assets/project-exponencial.jpg";
-import amplify from "@/assets/project-amplify.jpg";
+import kairos from "@/assets/kairos-research-product-visual-system.png";
+import lytryum from "@/assets/lytryum-web3-education-brand-system.png";
+import exponencial from "@/assets/exponencial-event-campaign-design.png";
+import fidex from "@/assets/fidex-capital-fintech-ui-design.png";
 
 type Project = {
   index: string;
@@ -57,7 +57,7 @@ const projects: Project[] = [
       "Design tokens",
     ],
     tags: ["Figma", "Design System", "UI Visual", "Responsive"],
-    image: amplify,
+    image: fidex,
   },
   {
     index: "03",
