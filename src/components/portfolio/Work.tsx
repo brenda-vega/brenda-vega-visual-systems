@@ -204,11 +204,16 @@ const ProjectCase = ({
     >
       <div className={`grid grid-cols-1 md:grid-cols-12 ${compact ? "md:min-h-[430px] lg:min-h-[500px]" : "md:min-h-[500px] lg:min-h-[610px]"}`}>
         <div className={`relative overflow-hidden ${compact ? "md:col-span-7" : "md:col-span-8"} ${reverse ? "md:order-2" : ""}`}>
-          <div className={`relative h-full bg-background/35 ${compact ? "min-h-[220px] sm:min-h-[280px] md:min-h-[360px]" : "min-h-[240px] sm:min-h-[310px] md:min-h-[420px]"}`}>
+          <Link
+            to={project.caseStudyPath}
+            aria-label={`Open case study for ${project.name}`}
+            className={`relative block h-full bg-background/35 outline-none focus-visible:ring-1 focus-visible:ring-accent/50 focus-visible:ring-offset-4 focus-visible:ring-offset-background ${compact ? "min-h-[220px] sm:min-h-[280px] md:min-h-[360px]" : "min-h-[240px] sm:min-h-[310px] md:min-h-[420px]"}`}
+          >
             <img
               src={project.image}
               alt={`${project.name} / ${project.category}`}
               loading="lazy"
+              decoding="async"
               width={1400}
               height={980}
               className="case-study-image h-full w-full object-contain p-3 sm:p-5 md:p-6 lg:-translate-y-6 lg:p-8"
@@ -218,7 +223,7 @@ const ProjectCase = ({
             <div className="absolute left-5 top-5 rounded-full border border-white/10 bg-background/45 px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-foreground/80 backdrop-blur-xl">
               {project.eyebrow}
             </div>
-          </div>
+          </Link>
         </div>
 
         <div
@@ -234,7 +239,9 @@ const ProjectCase = ({
             <div className="space-y-3.5 md:space-y-4">
               <p className="text-[10px] uppercase tracking-[0.2em] text-accent sm:text-[11px] md:tracking-[0.22em]">{project.category}</p>
               <h3 className="font-display text-2xl leading-[1.08] tracking-normal text-foreground text-pretty sm:text-3xl md:text-4xl md:text-balance lg:text-5xl">
-                {project.name}
+                <Link to={project.caseStudyPath} className="outline-none transition-colors duration-500 hover:text-accent-soft focus-visible:text-accent-soft">
+                  {project.name}
+                </Link>
               </h3>
               <div className="max-w-sm space-y-3 text-sm leading-relaxed text-muted-foreground text-pretty">
                 {project.description.map((paragraph) => (

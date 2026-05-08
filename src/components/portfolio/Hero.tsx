@@ -1,5 +1,6 @@
 import heroVisual from "@/assets/brenda-vega-editorial-portrait.png";
 import { ArrowUpRight, Download } from "lucide-react";
+import { navigateToHash } from "@/lib/scroll";
 import { useEffect, useRef, useState } from "react";
 
 type StatConfig = {
@@ -8,6 +9,8 @@ type StatConfig = {
   suffix?: string;
   rangeEnd?: number;
 };
+
+const cvHref = `${import.meta.env.BASE_URL}Brenda-Vega-Visual-Designer-CV.pdf`;
 
 const stats: StatConfig[] = [
   { end: 4, suffix: "+", label: "áreas de diseño" },
@@ -66,7 +69,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden pt-[26rem] pb-20 sm:pt-[32rem] lg:pt-40 lg:pb-24">
+    <section id="top" className="relative min-h-screen overflow-hidden pt-[22rem] pb-20 sm:pt-[28rem] lg:pt-40 lg:pb-24">
       {/* Soft ambient gradient */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-hero-radial" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-accent opacity-55" />
@@ -75,7 +78,7 @@ export const Hero = () => {
 
       <div className="hero-editorial-portrait reveal reveal-delay-2" aria-hidden="true">
         <div className="hero-editorial-glow" />
-        <img src={heroVisual} alt="" width={1024} height={1280} className="hero-editorial-image" />
+        <img src={heroVisual} alt="" width={1024} height={1280} decoding="async" fetchPriority="high" className="hero-editorial-image" />
         <div className="hero-editorial-overlay" />
         <div className="hero-editorial-sidefade" />
         <div className="hero-editorial-bottomfade" />
@@ -111,13 +114,17 @@ export const Hero = () => {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:col-span-5">
             <a
               href="#work"
+              onClick={(event) => {
+                event.preventDefault();
+                navigateToHash("#work");
+              }}
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background shadow-glow soft-button hover:bg-accent-soft"
             >
               Ver proyectos
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="/Brenda-Vega-Visual-Designer-CV.pdf"
+              href={cvHref}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full border border-hairline bg-surface/45 px-6 py-3.5 text-sm text-foreground/90 backdrop-blur-md soft-button hover:border-accent/30 hover:bg-surface-elevated hover:text-foreground"

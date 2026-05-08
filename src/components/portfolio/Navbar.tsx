@@ -1,5 +1,6 @@
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { navigateToHash } from "@/lib/scroll";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -8,15 +9,18 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
+const cvHref = `${import.meta.env.BASE_URL}Brenda-Vega-Visual-Designer-CV.pdf`;
+
 const socialLinks = [
   { href: "https://www.linkedin.com/in/brendavega012/", label: "LinkedIn", icon: ArrowUpRight },
-  { href: "/Brenda-Vega-Visual-Designer-CV.pdf", label: "Download CV", icon: Download },
+  { href: cvHref, label: "Download CV", icon: Download },
 ];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -54,7 +58,10 @@ export const Navbar = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsMenuOpen(false);
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -64,29 +71,11 @@ export const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  const scrollToMobileTarget = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!window.matchMedia("(max-width: 767px)").matches) return;
-
+  const scrollToTarget = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault();
     setIsMenuOpen(false);
     document.body.style.overflow = "";
-
-    if (href === "#top") {
-      window.history.pushState(null, "", href);
-      window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
-      return;
-    }
-
-    const target = document.getElementById(href.replace("#", ""));
-    if (!target) return;
-
-    window.history.pushState(null, "", href);
-    window.requestAnimationFrame(() => {
-      window.scrollTo({
-        top: Math.max(target.offsetTop + 72, 0),
-        behavior: "smooth",
-      });
-    });
+    navigateToHash(href);
   };
 
   return (
@@ -106,6 +95,7 @@ export const Navbar = () => {
           <a
             href="#top"
             aria-current={activeSection === "top" ? "page" : undefined}
+            onClick={(event) => scrollToTarget(event, "#top")}
             className="group font-display text-sm tracking-normal"
           >
             <span className="text-foreground transition-colors group-hover:text-accent-soft">Brenda Vega</span>
@@ -120,6 +110,7 @@ export const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   aria-current={isActive ? "page" : undefined}
+                  onClick={(event) => scrollToTarget(event, l.href)}
                   className={`nav-link link-underline transition-colors duration-300 ${
                     isActive ? "text-foreground" : "hover:text-foreground"
                   }`}
@@ -131,6 +122,7 @@ export const Navbar = () => {
           </nav>
           <a
             href="#contact"
+            onClick={(event) => scrollToTarget(event, "#contact")}
             className="hidden h-9 items-center rounded-full border border-hairline bg-surface/55 px-4 text-[11px] tracking-[0.16em] text-foreground/90 soft-button hover:border-accent/30 hover:bg-surface-elevated hover:text-foreground md:inline-flex"
           >
             Disponible · 2026
@@ -141,7 +133,7 @@ export const Navbar = () => {
           <a
             href="#top"
             aria-current={activeSection === "top" ? "page" : undefined}
-            onClick={(event) => scrollToMobileTarget(event, "#top")}
+            onClick={(event) => scrollToTarget(event, "#top")}
             className={`font-display text-[13px] tracking-normal transition-colors duration-500 ${
               scrolled ? "text-foreground" : "text-foreground/92"
             }`}
@@ -154,6 +146,7 @@ export const Navbar = () => {
             type="button"
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
+            ref={menuButtonRef}
             onClick={() => setIsMenuOpen((open) => !open)}
             className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground/86 outline-none transition-all duration-500 focus-visible:ring-1 focus-visible:ring-accent/50 ${
               scrolled || isMenuOpen ? "bg-background/38 backdrop-blur-md" : "bg-background/12 backdrop-blur-sm"
@@ -173,6 +166,7 @@ export const Navbar = () => {
           type="button"
           aria-label="Cerrar menú"
           onClick={() => setIsMenuOpen(false)}
+          tabIndex={-1}
           className="absolute inset-0 cursor-default bg-background/82 backdrop-blur-xl"
         />
         <div
@@ -189,7 +183,7 @@ export const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   aria-current={isActive ? "page" : undefined}
-                  onClick={(event) => scrollToMobileTarget(event, l.href)}
+                  onClick={(event) => scrollToTarget(event, l.href)}
                   className={`font-display text-3xl leading-none transition-colors duration-500 ${
                     isActive ? "text-foreground" : "text-foreground/58 hover:text-foreground"
                   }`}
