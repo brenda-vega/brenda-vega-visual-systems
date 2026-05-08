@@ -1,5 +1,5 @@
 import { ArrowUpRight, Download, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -64,6 +64,31 @@ export const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  const scrollToMobileTarget = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!window.matchMedia("(max-width: 767px)").matches) return;
+
+    event.preventDefault();
+    setIsMenuOpen(false);
+    document.body.style.overflow = "";
+
+    if (href === "#top") {
+      window.history.pushState(null, "", href);
+      window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
+      return;
+    }
+
+    const target = document.getElementById(href.replace("#", ""));
+    if (!target) return;
+
+    window.history.pushState(null, "", href);
+    window.requestAnimationFrame(() => {
+      window.scrollTo({
+        top: Math.max(target.offsetTop + 72, 0),
+        behavior: "smooth",
+      });
+    });
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -116,7 +141,7 @@ export const Navbar = () => {
           <a
             href="#top"
             aria-current={activeSection === "top" ? "page" : undefined}
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(event) => scrollToMobileTarget(event, "#top")}
             className={`font-display text-[13px] tracking-normal transition-colors duration-500 ${
               scrolled ? "text-foreground" : "text-foreground/92"
             }`}
@@ -164,7 +189,7 @@ export const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   aria-current={isActive ? "page" : undefined}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(event) => scrollToMobileTarget(event, l.href)}
                   className={`font-display text-3xl leading-none transition-colors duration-500 ${
                     isActive ? "text-foreground" : "text-foreground/58 hover:text-foreground"
                   }`}
