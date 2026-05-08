@@ -105,19 +105,23 @@ export const Work = () => {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grain opacity-20" />
 
       <div className="container">
-        <div className="mb-20 grid grid-cols-1 gap-10 border-b border-hairline pb-12 lg:mb-24 lg:grid-cols-12 lg:items-end">
-          <div className="space-y-5 lg:col-span-8">
-            <span className="reveal inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+        <div className="mb-20 border-b border-hairline pb-12 lg:mb-24">
+          <div className="mb-10 flex items-center justify-between text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="reveal inline-flex items-center gap-3">
               <span className="h-px w-10 bg-accent/60" />
               03 / Selected Projects
             </span>
-            <h2 className="reveal reveal-delay-1 max-w-4xl font-display text-4xl leading-[1.02] tracking-normal text-balance sm:text-5xl lg:text-7xl">
+            <span className="hidden lg:inline">Brand systems · Editorial · Digital campaigns</span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
+            <h2 className="reveal reveal-delay-1 max-w-4xl font-display text-4xl leading-[1.02] tracking-normal text-balance sm:text-5xl lg:col-span-8 lg:text-7xl">
               Selected Work
             </h2>
+            <p className="reveal reveal-delay-2 max-w-md text-sm leading-relaxed text-muted-foreground lg:col-span-3 lg:col-start-10">
+              Sistemas visuales, campañas y contenido digital desarrollados para marcas con necesidades de coherencia, velocidad y calidad visual.
+            </p>
           </div>
-          <p className="reveal reveal-delay-2 max-w-md text-sm leading-relaxed text-muted-foreground lg:col-span-3 lg:col-start-10">
-            Sistemas visuales, campañas y contenido digital desarrollados para marcas con necesidades de coherencia, velocidad y calidad visual.
-          </p>
         </div>
 
         <div className="space-y-10 lg:space-y-16">
