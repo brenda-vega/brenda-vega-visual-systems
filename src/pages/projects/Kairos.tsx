@@ -1,17 +1,28 @@
+import CaseStudyNav from "@/components/portfolio/CaseStudyNav";
+import kairosVisual from "@/assets/kairos-research-product-visual-system.png";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const metadata = [
-  { label: "Año", value: `2024 — 2025` },
-  { label: "Rol", value: `Visual Designer · Editorial System · Information Design` },
-  { label: "Herramientas", value: `Figma, Notion, Beehiiv, Adobe Creative Suite, IA aplicada a contenido` },
+const metrics = [
+  { value: "42+", label: "Semanas editoriales" },
+  { value: "100+", label: "Assets digitales" },
+  { value: "Multiformato", label: "Newsletter · Social · Reports" },
 ];
 
 const decisions = [
-  `Definir un sistema editorial modular para formatos recurrentes.`,
-  `Diseñar estructuras reutilizables para reportes, infografías y piezas editoriales.`,
-  `Estandarizar la identidad visual entre newsletter, redes y reportes.`,
-  `Integrar IA como apoyo en exploración visual y optimización de flujos creativos.`
+  "Diseñar una estructura editorial reutilizable para contenido semanal.",
+  "Crear componentes visuales adaptables para infografías, reportes y piezas educativas.",
+  "Estandarizar jerarquías visuales para mejorar lectura y comprensión.",
+  "Mantener coherencia visual entre newsletter, social media y contenido digital.",
+];
+
+const tags = [
+  "Editorial Systems",
+  "Information Design",
+  "Newsletter",
+  "Content Structure",
+  "Data Visualization",
+  "Digital Communication",
 ];
 
 const Kairos = () => {
@@ -46,12 +57,22 @@ const Kairos = () => {
           </div>
 
           <div className="reveal reveal-delay-2 mt-16 grid grid-cols-1 gap-4 border-y border-hairline py-6 sm:grid-cols-3">
-            {metadata.map((item) => (
+            {metrics.map((item) => (
               <div key={item.label} className="border-b border-hairline pb-5 transition-colors duration-500 hover:border-accent/25 last:border-b-0 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-6 sm:last:border-r-0">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">{item.label}</p>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/82">{item.value}</p>
+                <p className="font-display text-2xl text-foreground/90">{item.value}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.label}</p>
               </div>
             ))}
+          </div>
+
+          <div className="reveal reveal-delay-3 mt-12 overflow-hidden rounded-[1.75rem] border border-hairline bg-surface/25 p-4 shadow-soft sm:p-6 lg:p-8">
+            <img
+              src={kairosVisual}
+              alt="Kairos Research editorial system mockup"
+              width={1600}
+              height={1100}
+              className="h-auto w-full rounded-[1.25rem] object-contain"
+            />
           </div>
         </div>
       </section>
@@ -59,18 +80,32 @@ const Kairos = () => {
       <section className="py-24 lg:py-32">
         <div className="container grid grid-cols-1 gap-16 lg:grid-cols-12">
           <aside className="lg:col-span-4">
-            <div className="scroll-reveal sticky top-28 space-y-5">
+            <div className="scroll-reveal sticky top-28 space-y-6">
               <span className="font-display text-7xl leading-none text-foreground/8 sm:text-8xl">01</span>
               <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                Case study structure focused on context, decisions and system-level design thinking.
+                Case study enfocado en sistemas editoriales, estructura visual de contenido y comunicación digital recurrente.
               </p>
+              <div className="flex max-w-sm flex-wrap gap-2 pt-4">
+                {tags.map((tag) => (
+                  <span key={tag} className="rounded-full border border-hairline bg-surface/35 px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </aside>
 
           <div className="space-y-16 lg:col-span-7 lg:col-start-6">
-            <CaseBlock title="Contexto" body={`Kairos Research necesitaba consolidar su newsletter como producto editorial sostenible, no solo como canal de difusión.`} />
-            <CaseBlock title="Problema" body={`El contenido era valioso, pero requería una estructura visual más consistente para escalar producción, claridad y distribución multicanal.`} />
-            <CaseBlock title="Hipótesis" body={`Si el newsletter se trata como un sistema editorial —con estructura visual, formatos recurrentes y criterios de diseño— puede sostener producción semanal sin perder profundidad ni coherencia.`} />
+            <section className="scroll-reveal rounded-[1.75rem] border border-hairline bg-surface/25 p-8 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface/35 sm:p-10">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Status</p>
+              <p className="mt-5 text-base leading-relaxed text-foreground/78 text-pretty lg:text-lg">
+                Sistema editorial desarrollado para producción semanal, adaptación multicanal y organización visual de información compleja.
+              </p>
+            </section>
+
+            <CaseBlock title="Contexto" body="Kairos Research necesitaba consolidar su newsletter y comunicación visual como un sistema escalable, manteniendo consistencia entre contenido editorial, piezas informativas y formatos digitales recurrentes." />
+            <CaseBlock title="Problema" body="El contenido crecía rápidamente, pero la producción visual dependía de procesos manuales y estructuras poco reutilizables, dificultando consistencia, velocidad y adaptación entre plataformas." />
+            <CaseBlock title="Hipótesis" body="Un sistema visual modular permitiría organizar información compleja, acelerar producción editorial y mantener coherencia visual entre newsletter, redes sociales y materiales informativos." />
 
             <section className="scroll-reveal space-y-5 border-t border-hairline pt-8 transition-colors duration-500 hover:border-accent/25">
               <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Decisiones clave</p>
@@ -84,9 +119,9 @@ const Kairos = () => {
               </ol>
             </section>
 
-            <CaseBlock title="Solución" body={`Sistema visual y editorial que conecta investigación, diseño de información y comunicación digital. Cada pieza responde a una lógica visual consistente y adaptable a distintos canales.`} />
-            <CaseBlock title="Resultado" body={`Producción editorial sostenida durante 42 ediciones semanales, con crecimiento de audiencia y mayor consistencia visual entre formatos.`} />
-            <CaseBlock title="Aprendizaje" body={`El diseño editorial funciona mejor cuando se entiende como sistema, no como pieza aislada.`} />
+            <CaseBlock title="Solución" body="Desarrollo de un sistema visual editorial enfocado en claridad, reutilización y adaptación multiformato, permitiendo producir contenido recurrente con identidad visual consistente." />
+            <CaseBlock title="Resultado" body="Sistema editorial estable para producción continua de contenido, mejorando organización visual, consistencia y adaptación entre plataformas digitales." />
+            <CaseBlock title="Aprendizajes" body="La organización visual funciona mejor cuando el diseño se construye como sistema y no como piezas aisladas. La consistencia acelera producción y fortalece percepción de marca." />
 
             <section className="scroll-reveal rounded-[1.75rem] border border-hairline bg-surface/25 p-8 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface/35 sm:p-10">
               <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Next</p>
@@ -97,6 +132,7 @@ const Kairos = () => {
                 Back to selected work
                 <ArrowUpRight className="h-5 w-5 text-accent transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
               </Link>
+              <CaseStudyNav current="kairos" />
             </section>
           </div>
         </div>

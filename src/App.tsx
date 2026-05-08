@@ -1,12 +1,35 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Kairos from "./pages/projects/Kairos.tsx";
+import Fidex from "./pages/projects/Fidex.tsx";
+import Phronesis from "./pages/projects/Phronesis.tsx";
+import Lytryum from "./pages/projects/Lytryum.tsx";
+import Exponencial from "./pages/projects/Exponencial.tsx";
 
 const queryClient = new QueryClient();
+
+const ScrollToTop = () => {
+  const { hash, pathname } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      window.requestAnimationFrame(() => {
+        document.querySelector(hash)?.scrollIntoView({ block: "start" });
+      });
+      return;
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [hash, pathname]);
+
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -14,8 +37,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/projects/kairos" element={<Kairos />} />
+          <Route path="/projects/fidex" element={<Fidex />} />
+          <Route path="/projects/phronesis" element={<Phronesis />} />
+          <Route path="/projects/lytryum" element={<Lytryum />} />
+          <Route path="/projects/exponencial" element={<Exponencial />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

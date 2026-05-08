@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Download, Link as LinkIcon, MapPin } from "lucide-react";
 
 const services = [
   "Branding",
@@ -7,6 +7,25 @@ const services = [
   "Digital Design",
   "UI Visual",
   "Remote Collaboration",
+];
+
+const contactLinks = [
+  {
+    label: "Contactar por LinkedIn",
+    href: "https://www.linkedin.com/in/brendavega012/",
+    icon: ArrowUpRight,
+    primary: true,
+  },
+  {
+    label: "Ver enlaces profesionales",
+    href: "https://linktr.ee/brendavega012",
+    icon: LinkIcon,
+  },
+  {
+    label: "Descargar CV",
+    href: "/Brenda-Vega-Visual-Designer-CV.pdf",
+    icon: Download,
+  },
 ];
 
 export const Contact = () => {
@@ -23,29 +42,30 @@ export const Contact = () => {
               Diseño visual consistente, adaptable y orientado a comunicación de marca.
             </p>
 
-            <a
-              href="mailto:brendavegavqz@gmail.com"
-              className="group inline-flex items-center gap-3 text-2xl sm:text-3xl font-display text-foreground"
-            >
-              <span className="link-underline">brendavegavqz@gmail.com</span>
-              <ArrowUpRight className="h-6 w-6 text-accent transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-
-            <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-accent" /> brendavegavqz@gmail.com</span>
-              <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-accent" /> San Luis Potosí, México - Disponible para Remoto</span>
-            </div>
-
-            <div className="flex flex-wrap gap-3 pt-4">
-              {["LinkedIn", "Portfolio", "Behance"].map((s) => (
+            <div className="flex flex-wrap gap-3 pt-2">
+              {contactLinks.map(({ label, href, icon: Icon, primary }) => (
                 <a
-                  key={s}
-                  href="#"
-                  className="soft-button rounded-full border border-hairline bg-surface/40 px-4 py-2 text-sm text-foreground/85 hover:border-accent/30 hover:text-foreground hover:bg-surface-elevated"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`soft-button inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm transition-colors duration-500 ${
+                    primary
+                      ? "bg-foreground text-background shadow-glow hover:bg-accent-soft"
+                      : "border border-hairline bg-surface/40 text-foreground/85 hover:border-accent/30 hover:bg-surface-elevated hover:text-foreground"
+                  }`}
                 >
-                  {s} ↗
+                  {label}
+                  <Icon className="h-4 w-4" aria-hidden="true" />
                 </a>
               ))}
+            </div>
+
+            <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-accent" /> San Luis Potosí, México - Disponible para Remoto</span>
+              <a href="mailto:brendavegavqz@gmail.com" className="link-underline text-foreground/45 transition-colors duration-300 hover:text-foreground/70">
+                Email directo
+              </a>
             </div>
           </div>
 
@@ -68,9 +88,9 @@ export const Contact = () => {
           </aside>
         </div>
 
-        <footer className="mt-32 pt-10 border-t border-hairline flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>© 2026 Brenda Vega · Visual Designer</p>
-          <p>Visual Designer · Branding · Editorial · Social Media · Digital Design</p>
+        <footer className="mt-32 pt-10 border-t border-hairline flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs">
+          <p className="text-foreground/55">© 2026 Brenda Vega · Visual Designer</p>
+          <p className="text-foreground/68">Visual Designer · Branding · Editorial · Social Media · Digital Design</p>
         </footer>
       </div>
     </section>

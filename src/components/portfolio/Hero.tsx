@@ -66,7 +66,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden pt-[28rem] pb-24 sm:pt-[34rem] lg:pt-44 lg:pb-28">
+    <section id="top" className="relative min-h-screen overflow-hidden pt-[26rem] pb-20 sm:pt-[32rem] lg:pt-40 lg:pb-24">
       {/* Soft ambient gradient */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-hero-radial" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-accent opacity-55" />
@@ -81,18 +81,16 @@ export const Hero = () => {
         <div className="hero-editorial-bottomfade" />
       </div>
 
-      <div className="container relative z-10 lg:min-h-[calc(100vh-11rem)]">
-        <div className="max-w-3xl space-y-9 lg:max-w-[47rem] xl:max-w-[52rem] lg:space-y-10">
+      <div className="container relative z-10">
+        <div className="max-w-3xl space-y-8 lg:max-w-[43rem] xl:max-w-[47rem] lg:space-y-10">
           <div className="reveal inline-flex items-center gap-3 rounded-full border border-hairline bg-surface/35 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-md">
             <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_18px_hsl(var(--accent)/0.45)]" />
             Visual Designer · Branding · Editorial · Digital
           </div>
 
           <h1 className="reveal reveal-delay-1 max-w-[13ch] font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.94] tracking-normal text-balance">
-            <span className="text-gradient">Visual Designer</span>
-            <br />
-            <span className="text-foreground">para agencias </span>
-            <span className="italic font-light text-accent">creativas</span>
+            <span className="text-foreground">Visual </span>
+            <span className="italic font-light text-accent">Designer</span>
           </h1>
 
           <div className="reveal reveal-delay-2 max-w-2xl space-y-5 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed text-pretty">
@@ -107,7 +105,10 @@ export const Hero = () => {
             </p>
           </div>
 
-          <div className="reveal reveal-delay-3 flex flex-wrap items-center gap-3 sm:gap-4">
+        </div>
+
+        <div className="reveal reveal-delay-3 mt-8 flex flex-col gap-4 lg:mt-0 lg:grid lg:-translate-y-12 lg:grid-cols-12 lg:items-center xl:-translate-y-14">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:col-span-5">
             <a
               href="#work"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background shadow-glow soft-button hover:bg-accent-soft"
@@ -116,7 +117,9 @@ export const Hero = () => {
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="#contact"
+              href="/Brenda-Vega-Visual-Designer-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full border border-hairline bg-surface/45 px-6 py-3.5 text-sm text-foreground/90 backdrop-blur-md soft-button hover:border-accent/30 hover:bg-surface-elevated hover:text-foreground"
             >
               <Download className="h-4 w-4" />
@@ -124,15 +127,18 @@ export const Hero = () => {
             </a>
           </div>
 
-        </div>
+          <p className="text-[11px] uppercase tracking-[0.16em] text-foreground/48 sm:text-xs lg:hidden">
+            4+ ÁREAS · 20+ PROYECTOS · 100+ ASSETS
+          </p>
 
-        <div
-          ref={statsRef}
-          className="reveal reveal-delay-4 mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-hairline pt-6 lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:w-[360px] lg:max-w-none lg:border-t-0 lg:pt-0"
-        >
-          {stats.map((stat) => (
-            <Stat key={stat.label} stat={stat} progress={progress} />
-          ))}
+          <div
+            ref={statsRef}
+            className="hidden max-w-lg grid-cols-3 gap-6 lg:col-span-4 lg:col-start-9 lg:grid lg:max-w-none"
+          >
+            {stats.map((stat) => (
+              <Stat key={stat.label} stat={stat} progress={progress} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -145,9 +151,9 @@ const Stat = ({ stat, progress }: { stat: StatConfig; progress: number }) => {
   const value = endValue !== undefined ? `${startValue}–${endValue}${stat.suffix ?? ""}` : `${startValue}${stat.suffix ?? ""}`;
 
   return (
-    <div className="border-l border-white/10 pl-4 lg:border-white/8">
-      <div className="font-display text-xl text-foreground/82 tabular-nums sm:text-2xl lg:text-[1.65rem]">{value}</div>
-      <div className="mt-1.5 text-[11px] leading-snug text-muted-foreground/82">{stat.label}</div>
+    <div className="border-l border-white/[0.055] pl-5">
+      <div className="font-display text-2xl text-foreground/86 tabular-nums lg:text-[1.95rem] xl:text-[2.1rem]">{value}</div>
+      <div className="mt-3 text-[10px] uppercase leading-snug tracking-[0.12em] text-muted-foreground/62">{stat.label}</div>
     </div>
   );
 };

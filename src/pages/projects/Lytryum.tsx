@@ -1,32 +1,31 @@
 import CaseStudyNav from "@/components/portfolio/CaseStudyNav";
-import phronesisHero from "@/assets/phronesis-fintech-dashboard-product-design.png";
-import phronesisSystem from "@/assets/phronesis-dashboard-ui-system-dark-mode.png";
+import lytryumVisual from "@/assets/lytryum-web3-education-brand-system.png";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const highlights = [
-  { value: "Dashboard System", label: "Arquitectura modular" },
-  { value: "Information Design", label: "Jerarquía visual clara" },
-  { value: "Responsive UI", label: "Desktop · Tablet · Mobile" },
+  { value: "Educational System", label: "Contenido modular escalable" },
+  { value: "Multiformat Design", label: "Adaptación multiplataforma" },
+  { value: "AI Assisted Workflow", label: "Producción visual optimizada" },
 ];
 
 const decisions = [
-  "Definir jerarquías visuales claras para métricas y módulos principales.",
-  "Diseñar estructuras dashboard enfocadas en lectura rápida y claridad operativa.",
-  "Implementar componentes reutilizables y layouts modulares.",
-  "Mantener consistencia visual entre navegación, tablas, métricas y estados.",
+  "Definir una estructura visual consistente para contenido educativo y promocional.",
+  "Diseñar assets reutilizables para campañas, redes sociales y eventos.",
+  "Crear piezas adaptables a distintos formatos y plataformas digitales.",
+  "Integrar exploración visual asistida por IA para acelerar producción creativa.",
 ];
 
 const tags = [
-  "Dashboard",
-  "Product UI",
-  "Information Design",
-  "UX Systems",
-  "Data Interface",
-  "Responsive UI",
+  "Education",
+  "Content System",
+  "Social Design",
+  "AI Assisted",
+  "Digital Learning",
+  "Visual System",
 ];
 
-const Phronesis = () => {
+const Lytryum = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="relative overflow-hidden border-b border-hairline py-28 lg:py-36">
@@ -46,14 +45,14 @@ const Phronesis = () => {
             <div className="space-y-6 lg:col-span-8">
               <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
                 <span className="h-px w-10 bg-accent/60" />
-                Product UI · Dashboard System · Information Architecture
+                Educational Visual System · Content Architecture · Digital Learning
               </span>
               <h1 className="font-display text-5xl leading-[0.96] tracking-normal text-balance sm:text-6xl lg:text-8xl">
-                Phronesis
+                Lytryum
               </h1>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground text-pretty lg:col-span-4 lg:text-lg">
-              Case study enfocado en dashboards, organización visual de información y sistemas UI para productos digitales.
+              Case study enfocado en sistemas visuales educativos, contenido digital y estructuras visuales adaptables para plataformas online.
             </p>
           </div>
 
@@ -68,8 +67,8 @@ const Phronesis = () => {
 
           <div className="reveal reveal-delay-3 mt-12 overflow-hidden rounded-[1.75rem] border border-hairline bg-surface/25 p-4 shadow-soft sm:p-6 lg:p-8">
             <img
-              src={phronesisHero}
-              alt="Phronesis fintech dashboard product design mockup"
+              src={lytryumVisual}
+              alt="Lytryum Web3 education brand system mockup"
               width={1600}
               height={1100}
               className="h-auto w-full rounded-[1.25rem] object-contain"
@@ -84,7 +83,7 @@ const Phronesis = () => {
             <div className="scroll-reveal sticky top-28 space-y-6">
               <span className="font-display text-7xl leading-none text-foreground/8 sm:text-8xl">01</span>
               <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                Sistema visual diseñado para simplificar información compleja mediante dashboards claros, modulares y escalables.
+                Sistema visual diseñado para escalar contenido educativo, materiales digitales y comunicación visual multiformato.
               </p>
               <div className="flex max-w-sm flex-wrap gap-2 pt-4">
                 {tags.map((tag) => (
@@ -97,9 +96,9 @@ const Phronesis = () => {
           </aside>
 
           <div className="space-y-16 lg:col-span-7 lg:col-start-6">
-            <CaseBlock title="Contexto" body="Phronesis requería una interfaz capaz de organizar grandes volúmenes de información financiera y operativa sin generar sobrecarga visual ni confusión para el usuario." />
-            <CaseBlock title="Problema" body="La cantidad de datos, métricas y categorías dificultaba lectura rápida, navegación y jerarquización efectiva dentro del producto." />
-            <CaseBlock title="Hipótesis" body="Un dashboard modular con jerarquía clara, componentes reutilizables y organización visual consistente puede mejorar comprensión, navegación y escalabilidad del sistema." />
+            <CaseBlock title="Contexto" body="Lytryum necesitaba estructurar visualmente una plataforma educativa Web3 capaz de mantener coherencia entre cursos, redes sociales, eventos y materiales digitales." />
+            <CaseBlock title="Problema" body="La comunicación visual y producción de contenido eran inconsistentes entre plataformas, dificultando escalabilidad y reconocimiento visual del ecosistema educativo." />
+            <CaseBlock title="Hipótesis" body="Un sistema visual modular con estructuras reutilizables y lineamientos claros puede acelerar producción y mantener consistencia visual entre múltiples formatos digitales." />
 
             <section className="scroll-reveal space-y-5 border-t border-hairline pt-8 transition-colors duration-500 hover:border-accent/25">
               <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Decisiones clave</p>
@@ -113,23 +112,9 @@ const Phronesis = () => {
               </ol>
             </section>
 
-            <section className="scroll-reveal overflow-hidden rounded-[1.75rem] border border-hairline bg-surface/25 p-4 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface/35 sm:p-6 lg:p-7">
-              <div className="mb-5 flex items-center justify-between gap-6 border-b border-hairline pb-5">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Supporting visual</p>
-                <span className="text-xs text-muted-foreground/70">UI system detail</span>
-              </div>
-              <img
-                src={phronesisSystem}
-                alt="Phronesis dark mode dashboard UI system"
-                width={1600}
-                height={1100}
-                className="h-auto w-full rounded-[1.25rem] object-contain"
-              />
-            </section>
-
-            <CaseBlock title="Solución" body="Diseño de un sistema dashboard modular enfocado en claridad visual, navegación intuitiva y organización eficiente de información compleja dentro de una interfaz escalable." />
-            <CaseBlock title="Resultado" body="Interfaz estructurada para facilitar lectura rápida, exploración de datos y expansión futura del producto sin perder consistencia visual." />
-            <CaseBlock title="Aprendizajes" body="En productos basados en información, la jerarquía visual y la claridad operativa son más importantes que la densidad visual. Menos ruido genera mejores decisiones." />
+            <CaseBlock title="Solución" body="Sistema visual modular orientado a contenido educativo digital, combinando identidad visual consistente, adaptación multiformato y producción escalable." />
+            <CaseBlock title="Resultado" body="Consistencia visual entre materiales educativos, campañas digitales y assets promocionales dentro del ecosistema de comunicación." />
+            <CaseBlock title="Aprendizajes" body="Los sistemas visuales educativos deben priorizar claridad, adaptación y velocidad de producción sin perder identidad visual." />
 
             <section className="scroll-reveal rounded-[1.75rem] border border-hairline bg-surface/25 p-8 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface/35 sm:p-10">
               <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Next</p>
@@ -140,7 +125,7 @@ const Phronesis = () => {
                 Back to selected work
                 <ArrowUpRight className="h-5 w-5 text-accent transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
               </Link>
-              <CaseStudyNav current="phronesis" />
+              <CaseStudyNav current="lytryum" />
             </section>
           </div>
         </div>
@@ -156,4 +141,4 @@ const CaseBlock = ({ title, body }: { title: string; body: string }) => (
   </section>
 );
 
-export default Phronesis;
+export default Lytryum;

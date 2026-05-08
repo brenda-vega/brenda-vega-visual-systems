@@ -27,7 +27,7 @@ const items = [
 
 export const Experience = () => {
   return (
-    <section id="experience" className="relative py-32 lg:py-40 border-t border-hairline">
+    <section id="experience" className="relative scroll-mt-16 py-32 lg:scroll-mt-28 lg:py-40 border-t border-hairline">
       <div className="container grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <div className="sticky top-32 space-y-3">

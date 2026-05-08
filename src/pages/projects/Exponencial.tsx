@@ -1,32 +1,31 @@
 import CaseStudyNav from "@/components/portfolio/CaseStudyNav";
-import phronesisHero from "@/assets/phronesis-fintech-dashboard-product-design.png";
-import phronesisSystem from "@/assets/phronesis-dashboard-ui-system-dark-mode.png";
+import exponencialVisual from "@/assets/exponencial-event-campaign-design.png";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const highlights = [
-  { value: "Dashboard System", label: "Arquitectura modular" },
-  { value: "Information Design", label: "Jerarquía visual clara" },
-  { value: "Responsive UI", label: "Desktop · Tablet · Mobile" },
+  { value: "Multichannel System", label: "Contenido distribuido en múltiples plataformas" },
+  { value: "Event Communication", label: "Campañas y activaciones digitales" },
+  { value: "Reusable Assets", label: "Producción visual escalable" },
 ];
 
 const decisions = [
-  "Definir jerarquías visuales claras para métricas y módulos principales.",
-  "Diseñar estructuras dashboard enfocadas en lectura rápida y claridad operativa.",
-  "Implementar componentes reutilizables y layouts modulares.",
-  "Mantener consistencia visual entre navegación, tablas, métricas y estados.",
+  "Definir una estructura visual reutilizable para campañas y contenido digital.",
+  "Adaptar piezas para YouTube, eventos, redes sociales y streaming.",
+  "Mantener coherencia visual entre comunicación digital y activaciones de comunidad.",
+  "Diseñar assets reutilizables para acelerar producción y distribución.",
 ];
 
 const tags = [
-  "Dashboard",
-  "Product UI",
-  "Information Design",
-  "UX Systems",
-  "Data Interface",
-  "Responsive UI",
+  "Campaign System",
+  "Event Branding",
+  "Digital Content",
+  "YouTube",
+  "Community Communication",
+  "Multiplatform Design",
 ];
 
-const Phronesis = () => {
+const Exponencial = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="relative overflow-hidden border-b border-hairline py-28 lg:py-36">
@@ -46,14 +45,14 @@ const Phronesis = () => {
             <div className="space-y-6 lg:col-span-8">
               <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-muted-foreground">
                 <span className="h-px w-10 bg-accent/60" />
-                Product UI · Dashboard System · Information Architecture
+                Campaign System · Event Branding · Digital Content Distribution
               </span>
               <h1 className="font-display text-5xl leading-[0.96] tracking-normal text-balance sm:text-6xl lg:text-8xl">
-                Phronesis
+                Exponencial Cripto Club
               </h1>
             </div>
             <p className="max-w-xl text-base leading-relaxed text-muted-foreground text-pretty lg:col-span-4 lg:text-lg">
-              Case study enfocado en dashboards, organización visual de información y sistemas UI para productos digitales.
+              Case study enfocado en campañas digitales, sistemas de contenido y comunicación visual multiplataforma.
             </p>
           </div>
 
@@ -68,8 +67,8 @@ const Phronesis = () => {
 
           <div className="reveal reveal-delay-3 mt-12 overflow-hidden rounded-[1.75rem] border border-hairline bg-surface/25 p-4 shadow-soft sm:p-6 lg:p-8">
             <img
-              src={phronesisHero}
-              alt="Phronesis fintech dashboard product design mockup"
+              src={exponencialVisual}
+              alt="Exponencial Cripto Club event campaign design mockup"
               width={1600}
               height={1100}
               className="h-auto w-full rounded-[1.25rem] object-contain"
@@ -84,7 +83,7 @@ const Phronesis = () => {
             <div className="scroll-reveal sticky top-28 space-y-6">
               <span className="font-display text-7xl leading-none text-foreground/8 sm:text-8xl">01</span>
               <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-                Sistema visual diseñado para simplificar información compleja mediante dashboards claros, modulares y escalables.
+                Sistema visual orientado a campañas digitales, activaciones de comunidad y distribución de contenido multiformato.
               </p>
               <div className="flex max-w-sm flex-wrap gap-2 pt-4">
                 {tags.map((tag) => (
@@ -97,9 +96,9 @@ const Phronesis = () => {
           </aside>
 
           <div className="space-y-16 lg:col-span-7 lg:col-start-6">
-            <CaseBlock title="Contexto" body="Phronesis requería una interfaz capaz de organizar grandes volúmenes de información financiera y operativa sin generar sobrecarga visual ni confusión para el usuario." />
-            <CaseBlock title="Problema" body="La cantidad de datos, métricas y categorías dificultaba lectura rápida, navegación y jerarquización efectiva dentro del producto." />
-            <CaseBlock title="Hipótesis" body="Un dashboard modular con jerarquía clara, componentes reutilizables y organización visual consistente puede mejorar comprensión, navegación y escalabilidad del sistema." />
+            <CaseBlock title="Contexto" body="Exponencial Cripto Club necesitaba estructurar su comunicación visual entre múltiples plataformas, eventos y formatos digitales manteniendo consistencia y reconocimiento visual." />
+            <CaseBlock title="Problema" body="La distribución de contenido y comunicación visual estaban fragmentadas entre canales, dificultando mantener coherencia entre campañas, eventos y contenido recurrente." />
+            <CaseBlock title="Hipótesis" body="Un sistema visual adaptable y una estructura de contenido consistente pueden transformar comunicación dispersa en una identidad reconocible y escalable." />
 
             <section className="scroll-reveal space-y-5 border-t border-hairline pt-8 transition-colors duration-500 hover:border-accent/25">
               <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Decisiones clave</p>
@@ -113,23 +112,9 @@ const Phronesis = () => {
               </ol>
             </section>
 
-            <section className="scroll-reveal overflow-hidden rounded-[1.75rem] border border-hairline bg-surface/25 p-4 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface/35 sm:p-6 lg:p-7">
-              <div className="mb-5 flex items-center justify-between gap-6 border-b border-hairline pb-5">
-                <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Supporting visual</p>
-                <span className="text-xs text-muted-foreground/70">UI system detail</span>
-              </div>
-              <img
-                src={phronesisSystem}
-                alt="Phronesis dark mode dashboard UI system"
-                width={1600}
-                height={1100}
-                className="h-auto w-full rounded-[1.25rem] object-contain"
-              />
-            </section>
-
-            <CaseBlock title="Solución" body="Diseño de un sistema dashboard modular enfocado en claridad visual, navegación intuitiva y organización eficiente de información compleja dentro de una interfaz escalable." />
-            <CaseBlock title="Resultado" body="Interfaz estructurada para facilitar lectura rápida, exploración de datos y expansión futura del producto sin perder consistencia visual." />
-            <CaseBlock title="Aprendizajes" body="En productos basados en información, la jerarquía visual y la claridad operativa son más importantes que la densidad visual. Menos ruido genera mejores decisiones." />
+            <CaseBlock title="Solución" body="Sistema visual y de contenido diseñado para soportar campañas recurrentes, eventos y distribución multiplataforma manteniendo consistencia visual entre formatos." />
+            <CaseBlock title="Resultado" body="Comunicación visual unificada entre plataformas, campañas y eventos digitales con una estructura adaptable para producción continua." />
+            <CaseBlock title="Aprendizajes" body="La consistencia visual no depende del formato; depende del sistema que conecta todas las piezas dentro de una misma narrativa visual." />
 
             <section className="scroll-reveal rounded-[1.75rem] border border-hairline bg-surface/25 p-8 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface/35 sm:p-10">
               <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Next</p>
@@ -140,7 +125,7 @@ const Phronesis = () => {
                 Back to selected work
                 <ArrowUpRight className="h-5 w-5 text-accent transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
               </Link>
-              <CaseStudyNav current="phronesis" />
+              <CaseStudyNav current="exponencial" />
             </section>
           </div>
         </div>
@@ -156,4 +141,4 @@ const CaseBlock = ({ title, body }: { title: string; body: string }) => (
   </section>
 );
 
-export default Phronesis;
+export default Exponencial;
