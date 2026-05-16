@@ -1,6 +1,6 @@
 import { ArrowUpRight, Download, Link as LinkIcon, MapPin, MessageCircle } from "lucide-react";
 
-const cvHref = `${import.meta.env.BASE_URL}Brenda-Vega-Visual-Designer-CV.pdf`;
+const cvHref = `${import.meta.env.BASE_URL}CV_VisualDesigner_BrendaVega_2026_v2.pdf`;
 
 const services = [
   "Visual Systems",
