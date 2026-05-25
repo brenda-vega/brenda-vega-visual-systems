@@ -38,13 +38,22 @@ export const Navbar = () => {
     if (!sections.length) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      () => {
+        const anchorLine = window.innerHeight * 0.36;
+        const visible = sections
+          .map((section) => {
+            const rect = section.getBoundingClientRect();
+            return {
+              section,
+              distance: Math.abs(rect.top - anchorLine),
+              isVisible: rect.bottom > 0 && rect.top < window.innerHeight,
+            };
+          })
+          .filter((entry) => entry.isVisible)
+          .sort((a, b) => a.distance - b.distance)[0];
 
-        if (visible?.target.id) {
-          setActiveSection(visible.target.id);
+        if (visible?.section.id) {
+          setActiveSection(visible.section.id);
         }
       },
       { rootMargin: "-28% 0px -58% 0px", threshold: [0.12, 0.25, 0.5] }
