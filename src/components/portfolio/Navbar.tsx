@@ -5,7 +5,7 @@ import { navigateToHash } from "@/lib/scroll";
 const links = [
   { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
+  { href: "#content-video", label: "Contenido" },
   { href: "#contact", label: "Contact" },
 ];
 
