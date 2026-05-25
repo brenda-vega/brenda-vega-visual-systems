@@ -55,6 +55,19 @@ export const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    const syncActiveHash = () => {
+      const hashId = window.location.hash.replace("#", "");
+      if (hashId && links.some((link) => link.href === `#${hashId}`)) {
+        setActiveSection(hashId);
+      }
+    };
+
+    syncActiveHash();
+    window.addEventListener("hashchange", syncActiveHash);
+    return () => window.removeEventListener("hashchange", syncActiveHash);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
 
     const onKeyDown = (event: KeyboardEvent) => {
@@ -73,6 +86,7 @@ export const Navbar = () => {
 
   const scrollToTarget = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault();
+    setActiveSection(href.replace("#", "") || "top");
     setIsMenuOpen(false);
     document.body.style.overflow = "";
     navigateToHash(href);
