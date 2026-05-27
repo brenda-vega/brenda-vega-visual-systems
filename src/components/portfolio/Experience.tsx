@@ -2,8 +2,10 @@ import { ExternalLink, LineChart, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type PortfolioAsset = {
+  slug?: string;
   title: string;
   caption: string;
+  cardSummary?: string;
   src: string;
   alt: string;
   format: string;
@@ -12,6 +14,7 @@ type PortfolioAsset = {
   role: string;
   tools?: string;
   channel: string;
+  tags?: string[];
   type?: "image" | "video";
   actionLabel?: string;
   actionHref?: string;
@@ -147,6 +150,22 @@ const assets: PortfolioAsset[] = [
     role: "Diseño de contenido, adaptación de mensaje y consistencia visual.",
     tools: "Canva · Photoshop · LinkedIn",
     channel: "LinkedIn / Social Media",
+  },
+  {
+    slug: "real-banquetes-editorial-branding",
+    title: "Real Banquetes — Editorial Branding",
+    caption:
+      "Branding and editorial material design for a hospitality and catering concept, including menu design, flyers, promotional print assets, packaging applications, and visual identity materials.",
+    cardSummary: "Editorial branding and print materials for a hospitality concept.",
+    src: assetPath("real-banquetes-editorial-branding.png"),
+    alt: "Real Banquetes editorial branding and print materials",
+    format: "Editorial Branding & Print Materials",
+    gridLabel: "BRANDING · EDITORIAL · PRINT",
+    objective: "Crear una identidad visual editorial y materiales impresos premium para una propuesta de banquetes y hospitalidad.",
+    role: "Diseño de branding, materiales editoriales, aplicaciones impresas y piezas promocionales.",
+    tools: "Photoshop · Illustrator · Canva",
+    channel: "Print / Hospitality / Food Design",
+    tags: ["Branding", "Editorial", "Print", "Food Design", "Hospitality"],
   },
   {
     title: "Mantle Puebla — Event Promotion",
@@ -371,7 +390,9 @@ export const Experience = () => {
                     <div>
                       <h3 className="mt-2 font-display text-lg leading-tight text-foreground transition-colors duration-700 group-hover:text-foreground">{item.title}</h3>
                       <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-accent/85">{item.gridLabel ?? item.format}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground transition-colors duration-700 group-hover:text-foreground/72">{item.caption}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground transition-colors duration-700 group-hover:text-foreground/72">
+                        {item.cardSummary ?? item.caption}
+                      </p>
                     </div>
                     <button
                       type="button"
@@ -470,6 +491,7 @@ const AssetLightbox = ({ asset, onClose }: { asset: PortfolioAsset; onClose: () 
                 <AssetMeta label="Rol" value={asset.role} />
                 {asset.tools ? <AssetMeta label="Herramientas" value={asset.tools} /> : null}
                 <AssetMeta label="Canal / plataforma" value={asset.channel} />
+                {asset.tags ? <AssetMeta label="Tags" value={asset.tags.join(" · ")} /> : null}
                 {asset.publicReference ? (
                   <AssetReference label={asset.publicReference.label} linkLabel={asset.publicReference.linkLabel} href={asset.publicReference.href} />
                 ) : null}
