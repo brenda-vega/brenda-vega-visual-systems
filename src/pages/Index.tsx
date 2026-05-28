@@ -5,7 +5,7 @@ import { Work } from "@/components/portfolio/Work";
 import { Experience } from "@/components/portfolio/Experience";
 import { Skills } from "@/components/portfolio/Skills";
 import { Systems } from "@/components/portfolio/Systems";
-import { Contact } from "@/components/portfolio/Contact";
+import { Contact, FloatingWhatsApp } from "@/components/portfolio/Contact";
 
 const Index = () => {
   return (
@@ -18,6 +18,7 @@ const Index = () => {
       <Skills />
       <Systems />
       <Contact />
+      <FloatingWhatsApp />
     </main>
   );
 };
