@@ -9,6 +9,7 @@ import phronesis from "@/assets/phronesis-fintech-dashboard-product-design.png";
 type Project = {
   index: string;
   name: string;
+  descriptor?: string;
   eyebrow: string;
   category: string;
   slug: string;
@@ -99,6 +100,7 @@ const projects: Project[] = [
   {
     index: "04",
     name: "Lytryum",
+    descriptor: "Academia online",
     eyebrow: "CONTENT DESIGN",
     category: "Educational Visual System · Content Architecture · Digital Learning",
     slug: "lytryum",
@@ -243,6 +245,9 @@ const ProjectCase = ({
                   {project.name}
                 </Link>
               </h3>
+              {project.descriptor ? (
+                <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/48">{project.descriptor}</p>
+              ) : null}
               <div className="max-w-sm space-y-3 text-sm leading-relaxed text-muted-foreground text-pretty">
                 {project.description.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
