@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 type PortfolioAsset = {
   slug?: string;
   title: string;
+  modalTitle?: string;
   caption: string;
   cardSummary?: string;
   src: string;
@@ -24,6 +25,13 @@ type PortfolioAsset = {
     linkLabel?: string;
     href: string;
   };
+  gallery?: GalleryItem[];
+};
+
+type GalleryItem = {
+  src: string;
+  alt: string;
+  category: string;
 };
 
 const assetPath = (filename: string) => `${import.meta.env.BASE_URL}assets/${filename}`;
@@ -166,6 +174,78 @@ const assets: PortfolioAsset[] = [
     tools: "Photoshop · Illustrator · Canva",
     channel: "Print · Hospitality · Food Design",
     tags: ["Branding", "Editorial", "Print", "Food Design", "Hospitality"],
+  },
+  {
+    slug: "fotografia-editorial-eventos",
+    title: "Fotografía Editorial y de Eventos",
+    caption: "Cobertura visual para eventos, narrativa documental, fotografía corporativa, gastronomía y exploración visual.",
+    src: assetPath("daikin03.jpeg"),
+    alt: "Daikin corporate event editorial photography",
+    format: "EDITORIAL · EVENTOS · DOCUMENTAL · CORPORATIVO",
+    gridLabel: "EDITORIAL · EVENTOS · DOCUMENTAL · CORPORATIVO",
+    objective: "Capturar atmósferas, narrativa y momentos reales a través de fotografía editorial y documental.",
+    role: "Dirección visual, fotografía y postproducción.",
+    tools: "Canon · Lightroom · Photoshop",
+    channel: "Eventos · Editorial · Gastronomía · Turismo · Corporativo",
+    actionLabel: "Ver galería",
+    gallery: [
+      {
+        src: assetPath("gastronomia.jpeg"),
+        alt: "Fotografía gastronómica editorial",
+        category: "Gastronomía",
+      },
+      {
+        src: assetPath("arte01.jpeg"),
+        alt: "Fotografía de tradición cultural",
+        category: "Tradición",
+      },
+      {
+        src: assetPath("arte02.jpeg"),
+        alt: "Retrato documental en entorno natural",
+        category: "Retrato Documental",
+      },
+      {
+        src: assetPath("turismo02.jpeg"),
+        alt: "Fotografía turística documental",
+        category: "Turismo",
+      },
+      {
+        src: assetPath("taller01.jpeg"),
+        alt: "Fotografía corporativa en taller mecánico",
+        category: "Corporativo",
+      },
+      {
+        src: assetPath("daikin04.jpeg"),
+        alt: "Fotografía de evento corporativo Daikin",
+        category: "Eventos",
+      },
+      {
+        src: assetPath("travel03.jpeg"),
+        alt: "Fotografía lifestyle de viaje",
+        category: "Lifestyle",
+      },
+      {
+        src: assetPath("arte04.jpeg"),
+        alt: "Fotografía de orquídeas con enfoque arquitectónico natural",
+        category: "Arquitectura",
+      },
+    ],
+  },
+  {
+    slug: "direccion-visual-corto-dia-de-muertos",
+    title: "Dirección Visual — Día de Muertos",
+    modalTitle: "Dirección Visual — Corto Experimental Día de Muertos",
+    caption:
+      "Cortometraje animado de aproximadamente 9 minutos, desarrollado como pieza audiovisual para una proyección cultural de Día de Muertos en la Facultad de Medicina UASLP. El proyecto integra ilustración digital, composición escénica, narrativa visual y motion graphics con una estética oscura inspirada en paisajes rurales mexicanos.",
+    cardSummary: "Corto experimental de motion graphics y dirección visual para una proyección cultural de Día de Muertos en la UASLP.",
+    src: assetPath("motion-dia-muertos-uaslp-cover.png"),
+    alt: "Corto experimental Día de Muertos UASLP motion graphics cover",
+    format: "MOTION GRAPHICS · DIRECCIÓN VISUAL",
+    gridLabel: "MOTION GRAPHICS · DIRECCIÓN VISUAL",
+    objective: "Diseñar una pieza audiovisual atmosférica para acompañar una proyección cultural universitaria.",
+    role: "Dirección visual · Ilustración · Motion graphics · Composición escénica",
+    tools: "Illustrator · Photoshop · After Effects",
+    channel: "Proyección audiovisual · Evento cultural",
   },
   {
     title: "Mantle Puebla — Event Promotion",
@@ -425,6 +505,7 @@ export const Experience = () => {
 const AssetLightbox = ({ asset, onClose }: { asset: PortfolioAsset; onClose: () => void }) => {
   const isVideo = asset.type === "video";
   const actionLabel = asset.actionLabel ?? "Ver manual";
+  const hasGallery = Boolean(asset.gallery?.length);
 
   return (
     <div
@@ -478,7 +559,7 @@ const AssetLightbox = ({ asset, onClose }: { asset: PortfolioAsset; onClose: () 
             <div className="space-y-6">
               <div className="space-y-3 border-b border-hairline pb-5">
                 <h3 id="asset-lightbox-title" className="font-display text-2xl leading-tight text-foreground text-pretty sm:text-3xl">
-                  {asset.title}
+                  {asset.modalTitle ?? asset.title}
                 </h3>
                 <div className="space-y-2">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-accent">{asset.format}</p>
@@ -500,7 +581,14 @@ const AssetLightbox = ({ asset, onClose }: { asset: PortfolioAsset; onClose: () 
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              {asset.actionHref ? (
+              {hasGallery ? (
+                <a
+                  href="#asset-gallery"
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-colors hover:bg-accent-soft"
+                >
+                  {actionLabel}
+                </a>
+              ) : asset.actionHref ? (
                 <a
                   href={asset.actionHref}
                   target="_blank"
@@ -521,6 +609,38 @@ const AssetLightbox = ({ asset, onClose }: { asset: PortfolioAsset; onClose: () 
             </div>
           </div>
         </div>
+
+        {hasGallery ? (
+          <div id="asset-gallery" className="border-t border-hairline px-5 py-7 sm:px-6 lg:px-9 lg:py-9">
+            <div className="mb-5 flex items-end justify-between gap-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-accent/82">Galería editorial</p>
+              <p className="hidden text-[10px] uppercase tracking-[0.18em] text-foreground/38 sm:block">Scroll horizontal</p>
+            </div>
+
+            <div className="-mx-5 overflow-x-auto px-5 pb-3 [scrollbar-color:rgb(255_255_255_/_0.22)_transparent] [scrollbar-width:thin] sm:-mx-6 sm:px-6 lg:-mx-9 lg:px-9">
+              <div className="flex gap-4 sm:gap-5">
+                {asset.gallery?.map((item) => (
+                  <figure key={`${item.category}-${item.src}`} className="group/gallery min-w-[76vw] sm:min-w-[31rem] lg:min-w-[36rem]">
+                    <div className="aspect-[4/3] overflow-hidden rounded-[1rem] border border-hairline bg-surface/15">
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        loading="eager"
+                        decoding="async"
+                        width={1100}
+                        height={825}
+                        className="h-full w-full object-cover opacity-[0.92] transition duration-700 group-hover/gallery:scale-[1.025] group-hover/gallery:opacity-100"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-[10px] uppercase tracking-[0.18em] text-foreground/48 transition-colors duration-700 group-hover/gallery:text-foreground/70">
+                      {item.category}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
